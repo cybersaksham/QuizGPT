@@ -1,0 +1,2 @@
+deleteAnswers();
+getAnswers();

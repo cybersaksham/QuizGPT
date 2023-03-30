@@ -1,17 +1,46 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Quiz GPT",
   "version": "1.0",
   "description": "Solves the google form quiz by chat gpt 4",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "contextMenus"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Quiz GPT"
+  },
   "content_scripts": [
     {
       "matches": ["*://docs.google.com/forms/*"],
-      "js": ["quiz-gpt.js"]
+      "js": ["functions.js"]
     }
   ],
-  "action": {
-    "default_title": "Solve this quiz"
-  },
-  "icons": {}
+  "commands": {
+    "getAnswers": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "windows": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Get Answers"
+    },
+    "toggleAnswers": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "windows": "Ctrl+Shift+H",
+        "mac": "MacCtrl+Shift+H"
+      },
+      "description": "Show/Hide Answers"
+    },
+    "eraseAnswers": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "windows": "Ctrl+Shift+E",
+        "mac": "MacCtrl+Shift+E"
+      },
+      "description": "Erase Answers"
+    }
+  }
 }

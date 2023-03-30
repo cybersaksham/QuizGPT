@@ -33,7 +33,6 @@ const askGPT = async (question = "", options = [], ind = 0) => {
     const responseData = await response.json();
     const answer = responseData.choices[0].text.trim();
 
-    console.log({ ind, question, answer });
     return answer;
   } catch (error) {
     console.error({ ind, msg: "Error in API", error });
@@ -69,7 +68,7 @@ const changeAnswers = (type, question, answer) => {
   }
 };
 
-async function getSolutions() {
+const getAnswers = async () => {
   const questionElements = Array.from(
     document.querySelectorAll("div.Qr7Oae")
   ).map((el) => el.querySelector("div"));
@@ -95,6 +94,7 @@ async function getSolutions() {
 
           // Showing answers in DOM
           let node = document.createElement("span");
+          node.classList.add("answer_quiz_gpt");
           node.innerText = answer;
           question.parentElement.insertBefore(node, question);
 
@@ -112,7 +112,20 @@ async function getSolutions() {
   await Promise.all(promises);
 
   solution.sort((a, b) => a.ind - b.ind);
-  console.log(solution);
-}
+};
 
-getSolutions();
+const toggleAnswers = () => {
+  let answers = document.getElementsByClassName("answer_quiz_gpt");
+  Array.from(answers).forEach((el) => {
+    if (el.style.display === "none") {
+      el.style.display = "block";
+    } else {
+      el.style.display = "none";
+    }
+  });
+};
+
+const deleteAnswers = () => {
+  let answers = document.getElementsByClassName("answer_quiz_gpt");
+  Array.from(answers).forEach((el) => el.parentElement.removeChild(el));
+};
