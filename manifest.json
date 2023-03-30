@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Quiz GPT",
   "version": "1.0",
   "description": "Solves the google form quiz by chat gpt 4",
@@ -10,7 +10,7 @@
       "js": ["quiz-gpt.js"]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_title": "Solve this quiz"
   },
   "icons": {}
