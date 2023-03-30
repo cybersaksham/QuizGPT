@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches": ["*://docs.google.com/forms/*"],
-      "js": ["index.js"]
+      "js": ["quiz-gpt.js"]
     }
   ],
   "browser_action": {
