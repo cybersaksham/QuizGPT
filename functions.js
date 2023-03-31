@@ -1,8 +1,5 @@
 const askGPT = async (question = "", options = [], ind = 0) => {
   try {
-    const apiKey = "API KEY";
-    const gpt4Endpoint = "https://api.openai.com/v1/completions";
-
     let prompt = `Please provide an answer for the following question:\n${question}\n\n`;
     if (options.length > 0) {
       prompt += `Options are:\n`;
@@ -21,21 +18,24 @@ const askGPT = async (question = "", options = [], ind = 0) => {
       temperature: 0.5,
     };
 
-    const response = await fetch(gpt4Endpoint, {
+    const response = await fetch("https://chatgpt-proxy-zeta.vercel.app/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify(requestBody),
     });
 
-    const responseData = await response.json();
-    const answer = responseData.choices[0].text.trim();
+    const { error, answer } = await response.json();
 
-    return answer;
+    if (error) {
+      console.error({ msg: "Error in API", error });
+      return null;
+    } else {
+      return answer;
+    }
   } catch (error) {
-    console.error({ ind, msg: "Error in API", error });
+    console.error({ msg: "Error in API", error });
     return null;
   }
 };
@@ -64,7 +64,7 @@ const changeAnswers = (type, question, answer) => {
       // Checkboxes
     }
   } catch (error) {
-    console.error({ ind: i, msg: "Error when changing answer", error });
+    console.error({ msg: "Error when changing answer", error });
   }
 };
 
@@ -102,7 +102,7 @@ const getAnswers = async () => {
           changeAnswers(questionObject[3], question, answer);
           resolve();
         } catch (error) {
-          console.error({ ind: i, msg: "Error in execution", error });
+          console.error({ msg: "Error in execution", error });
           reject();
         }
       })
