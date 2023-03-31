@@ -30,8 +30,8 @@ Open any google form quiz and right click the extension icon to open menu. You c
 | Menu              | Shortcut     | Description                                                                                                                                           |
 | ----------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Get Answers       | Ctrl+Shift+F | It reads your quiz, find the answers and show them in the form above respective question. It also fills some multiple choice questions automatically. |
-| Show/Hide Answers | Ctrl+Shift+H | It hides the answers from google from temporariry and if already hidden then show them.                                                               |
-| Erase Answers     | Ctrl+Shift+E | It erases the answers data completely. You have to press `Ctrl+Shift+F` again to find the answers                                                     |
+| Show/Hide Answers | Ctrl+Shift+H | It hides the answers from google form temporarily and if already hidden then show them.                                                               |
+| Erase Answers     | Ctrl+Shift+E | It erases the answers data completely. You will have to press `Ctrl+Shift+F` again to find the answers                                                |
 
 ## Contribution
 
