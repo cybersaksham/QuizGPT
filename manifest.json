@@ -48,5 +48,8 @@
       },
       "description": "Erase Answers"
     }
+  },
+  "icons": {
+    "500": "logo.png"
   }
 }
