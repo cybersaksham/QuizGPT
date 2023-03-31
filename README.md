@@ -17,7 +17,7 @@ git clone https://github.com/cybersaksham/QuizGPT
 const apiKey = "API KEY";
 ```
 
-3 Then go to `chrome://extensions/` in browser and turn on `Developer mode`
+3. Then go to `chrome://extensions/` in browser and turn on `Developer mode`
 
 4. Click `Load Unpacked` and select the folder of the repository
 
