@@ -14,7 +14,7 @@ git clone https://github.com/cybersaksham/QuizGPT
 2. Open `functions.js` and replace below line to put your OpenAI API Key which you can generate from https://platform.openai.com/account/api-keys
 
 ```js
-const apiKey = "API KEY";
+const API_KEY = null;
 ```
 
 3. Then go to `chrome://extensions/` in browser and turn on `Developer mode`
